@@ -54,48 +54,38 @@ namespace LibraryManagementSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
+
             // make sql connection
-            SqlConnection con = new SqlConnection();
-            string connString = "server=localhost;user=root;database=library;port=3306;password=L@ndsh@rk123";
-            MySqlConnection conn = new MySqlConnection(connString);
-            SqlCommand cmd = new SqlCommand();
-
-
-            cmd.Connection = con;
-            cmd.CommandText = "select * from library.logintable where username = '" +txtUsername.Text+"' and pass ='" +txtPassword.Text+"'";
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            
-            /*
-            string connStr = "server=localhost;user=root;database=library;port=3306;password=L@ndsh@rk123";
-            MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
-                Console.WriteLine("Connecting to MySQL...");
-                conn.Open();
+                Console.WriteLine("Connecting");
+                string myConnection = "datasource=127.0.0.1;port=3306;username=newuser;password=newuser";
+                MySqlConnection myConn = new MySqlConnection(myConnection);
+                MySqlDataAdapter myDataAdapter = new MySqlDataAdapter();
+                myDataAdapter.SelectCommand = new MySqlCommand
+                    ("select * from library.logintable where username = '"+txtUsername.Text+"' and pass = '"+txtPassword.Text+"'", myConn);
+                MySqlCommandBuilder cb = new MySqlCommandBuilder(myDataAdapter);
+                myConn.Open();
 
-                string sql = "select * from library.logintable where username = '" + txtUsername.Text + "' and pass ='" + txtPassword.Text + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                DataSet ds = new DataSet();
+                myDataAdapter.Fill(ds);
 
-                while (rdr.Read())
+                Console.WriteLine("Done");
+
+                if(ds.Tables[0].Rows.Count != 0)
                 {
-                    Console.WriteLine(rdr[0] + " -- " + rdr[1]);
-                }
-                rdr.Close();
-            }
 
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Username or Password","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+            }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
 
-            conn.Close();
-            Console.WriteLine("Done.");
-            */
-            int a = 5;
         }
     }
 }
