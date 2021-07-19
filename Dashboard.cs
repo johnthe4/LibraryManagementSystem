@@ -43,5 +43,12 @@ namespace LibraryManagementSystem
             }
             
         }
+
+        private void viewBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //open ViewBooks form
+            ViewBooks vb = new ViewBooks();
+            vb.Show();
+        }
     }
 }

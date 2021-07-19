@@ -92,9 +92,11 @@ namespace LibraryManagementSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             //close this form
-            if(MessageBox.Show("This will delete your unsaved data.", "Are you sure?",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("This will delete your unsaved data.", "Are you sure?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 this.Close();
+                //change number of forms open 
+                Dashboard.restrictAbs = 0;
             }
         }
     }
