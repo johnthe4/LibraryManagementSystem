@@ -59,11 +59,11 @@ namespace LibraryManagementSystem
             try
             {
                 Console.WriteLine("Connecting");
-                string myConnection = "datasource=127.0.0.1;port=3306;username=newuser;password=newuser";
+                string myConnection = "datasource=127.0.0.1;port=3306;database=library;username=newuser;password=newuser";
                 MySqlConnection myConn = new MySqlConnection(myConnection);
                 MySqlDataAdapter myDataAdapter = new MySqlDataAdapter();
                 myDataAdapter.SelectCommand = new MySqlCommand
-                    ("select * from library.logintable where username = '"+txtUsername.Text+"' and pass = '"+txtPassword.Text+"'", myConn);
+                    ("select * from logintable where username = '"+txtUsername.Text+"' and pass = '"+txtPassword.Text+"'", myConn);
                 MySqlCommandBuilder cb = new MySqlCommandBuilder(myDataAdapter);
                 myConn.Open();
 
@@ -74,12 +74,17 @@ namespace LibraryManagementSystem
 
                 if(ds.Tables[0].Rows.Count != 0)
                 {
-
+                    //username and password valid
+                    this.Hide();
+                    Dashboard dash = new Dashboard();   //open dashboard 
+                    dash.Show();
                 }
                 else
                 {
+                    //show error if username and password doesnt match database
                     MessageBox.Show("Wrong Username or Password","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
+                myConn.Close();
             }
             catch (Exception ex)
             {
