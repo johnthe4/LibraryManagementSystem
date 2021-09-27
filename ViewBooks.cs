@@ -44,7 +44,7 @@ namespace LibraryManagementSystem
                 DataSet ds = new DataSet();
                 da.Fill(ds);
 
-                //fill gridview with table from addBook
+                //fill gridview with table from newbook
                 dataGridView1.DataSource = ds.Tables[0];
 
                 //close connection
