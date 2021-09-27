@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LibraryManagementSystem
@@ -15,6 +8,13 @@ namespace LibraryManagementSystem
         public Dashboard()
         {
             InitializeComponent();
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;  //show taskbar when maximized
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,6 +49,18 @@ namespace LibraryManagementSystem
             //open ViewBooks form
             ViewBooks vb = new ViewBooks();
             vb.Show();
+        }
+
+        private void addStudentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddStudent ast = new AddStudent();
+            ast.Show();
+        }
+
+        private void viewStudentInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ViewStudentInformation vst = new ViewStudentInformation();
+            vst.Show();
         }
     }
 }

@@ -54,6 +54,12 @@
     <Compile Include="AddBooks.Designer.cs">
       <DependentUpon>AddBooks.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddStudent.Designer.cs">
+      <DependentUpon>AddStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,8 +80,17 @@
     <Compile Include="ViewBooks.Designer.cs">
       <DependentUpon>ViewBooks.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewStudentInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewStudentInformation.Designer.cs">
+      <DependentUpon>ViewStudentInformation.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddBooks.resx">
       <DependentUpon>AddBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddStudent.resx">
+      <DependentUpon>AddStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -94,6 +109,9 @@
     </Compile>
     <EmbeddedResource Include="ViewBooks.resx">
       <DependentUpon>ViewBooks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewStudentInformation.resx">
+      <DependentUpon>ViewStudentInformation.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
