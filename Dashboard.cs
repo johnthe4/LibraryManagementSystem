@@ -62,5 +62,11 @@ namespace LibraryManagementSystem
             ViewStudentInformation vst = new ViewStudentInformation();
             vst.Show();
         }
+
+        private void issueBooksToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IssueBooks ib = new IssueBooks();
+            ib.Show();
+        }
     }
 }
